@@ -1,0 +1,15 @@
+The entry point of the application is the main method in the Game class file. The game reads any valid map files in
+the same directory as the Game class file. Valid map files are .txt files that are not README.txt.
+
+I have made Player an abstract class which groups shared functionality that Human and Bot inherit. 
+Therefore, the subclasses are only responsible for their own extended implementations (e.g. Human receiving user input).
+I made the Player class abstract since it does not make sense to instantiate a Player without knowing what type it is.
+Additionally, this simplifies adding new types of Player if the program were to be extended. I have used the same thought
+process for the abstract class Tile. I went on to change the application further so that it now includes different Bot
+strategies by making the Bot class abstract and having SmartBot and OmniscientBot extend it, this could be further
+changed as needed (e.g. LooterBot extends Bot).
+
+The abstract methods of these abstract classes form a contract that any subclass must implement. I have only specified methods as
+abstract when they are used by the subtype. When I have used subtype polymorphism (e.g. Tile.printTile(), Player.playTurn()),
+I ensured these methods were abstract so that the inherited methods can always be found. This process leads to
+consistent behaviour and reductions in code duplication.
